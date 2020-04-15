@@ -158,7 +158,7 @@ int main(int argc, char* argv[]) {
 
   // needed by this graph.
 
-  static tflite::MicroOpResolver<5> micro_op_resolver;
+  static tflite::MicroOpResolver<6> micro_op_resolver;
 
   micro_op_resolver.AddBuiltin(
 
@@ -169,7 +169,9 @@ int main(int argc, char* argv[]) {
   micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_MAX_POOL_2D,
 
                                tflite::ops::micro::Register_MAX_POOL_2D());
+micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_RESHAPE,
 
+                               tflite::ops::micro::Register_RESHAPE());
   micro_op_resolver.AddBuiltin(tflite::BuiltinOperator_CONV_2D,
 
                                tflite::ops::micro::Register_CONV_2D());
